@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.MD5Checker", "Atack.MD5Checker\Atack.MD5Checker.csproj", "{7B2474A1-A71A-4D81-8FC8-44AD265063EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.WinForm", "Atack.WinForm\Atack.WinForm.csproj", "{47809A61-9B66-4888-B3E8-95CC9C841D99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B2474A1-A71A-4D81-8FC8-44AD265063EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2474A1-A71A-4D81-8FC8-44AD265063EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2474A1-A71A-4D81-8FC8-44AD265063EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2474A1-A71A-4D81-8FC8-44AD265063EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BCAE4C0-703E-4353-9557-7F7E0460B817}
+	EndGlobalSection
+EndGlobal
