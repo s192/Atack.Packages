@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.MD5Checker", "Atack.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.WinForm", "Atack.WinForm\Atack.WinForm.csproj", "{47809A61-9B66-4888-B3E8-95CC9C841D99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.PdfMerger", "AStack.PdfMerger\AStack.PdfMerger.csproj", "{5C4F0131-5296-463D-9425-EDBD7C52D8F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47809A61-9B66-4888-B3E8-95CC9C841D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
