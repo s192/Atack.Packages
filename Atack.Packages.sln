@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.WinForm", "Atack.WinF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.PdfMerger", "AStack.PdfMerger\AStack.PdfMerger.csproj", "{5C4F0131-5296-463D-9425-EDBD7C52D8F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.BitMapCreator", "AStack.BitMapCreator\AStack.BitMapCreator.csproj", "{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C4F0131-5296-463D-9425-EDBD7C52D8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
