@@ -60,5 +60,8 @@
     <EmbeddedResource Include="Image\透明面.bmp" />
     <EmbeddedResource Include="Image\透明体.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Image\DWG.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
@@ -159,6 +160,85 @@ namespace AStack.BitMapCreator
             }
 
             graphics.DrawString(str, font, sbrush, point);
+
+            var path = Path.Combine(GetRuntimePath(), fileName + ".bmp");
+            bmp.Save(path, ImageFormat.Bmp);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="select"></param>
+        public static void CreatCommandTextBmp(string text, string fileName, float fontSize, Color textColor, Color backgroundColor)
+        {
+            var bmp = new Bitmap(100, 100);
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int j = 0; j < bmp.Height; j++)
+                {
+                    bmp.SetPixel(i, j, backgroundColor);
+                }
+            }
+
+            var graphics = Graphics.FromImage(bmp);
+            var font = new Font("Microsoft YaHei", fontSize, FontStyle.Bold);
+            var sbrush = new SolidBrush(textColor);
+            var rectangle = new RectangleF(0, 0, 100, 100);
+            var stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            graphics.SmoothingMode = SmoothingMode.AntiAlias; //使绘图质量最高，即消除锯齿
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
+            graphics.DrawString(text, font, sbrush, rectangle, stringFormat);
+
+            var path = Path.Combine(GetRuntimePath(), fileName + ".bmp");
+            bmp.Save(path, ImageFormat.Bmp);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="select"></param>
+        public static void CreatCommandTextBmp(string text, string fileName, float fontSize, Color textColor, string backgroundImage)
+        {
+            var bmp = new Bitmap(100, 100);
+
+
+            var graphics = Graphics.FromImage(bmp);
+
+            Bitmap img = null;
+            var assembly = Assembly.GetExecutingAssembly();
+            //获取指定的资源
+            using (Stream stream = assembly.GetManifestResourceStream($"AStack.BitMapCreator.Image.{backgroundImage}.bmp"))
+            {
+                if (stream != null)  //没有找到，GetManifestResourceStream会返回null
+                {
+                    img = new Bitmap(stream);
+                }
+            }
+
+            if (img == null)
+            {
+                return;
+            }
+
+            var descRect = new Rectangle(0, 0, 100, 100);
+            graphics.DrawImage(img, descRect);
+
+            var font = new Font("Microsoft YaHei", fontSize, FontStyle.Bold);
+            var sbrush = new SolidBrush(textColor);
+            var rectangle = new RectangleF(0, 0, 100, 100);
+            var stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+            graphics.SmoothingMode = SmoothingMode.AntiAlias; //使绘图质量最高，即消除锯齿
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
+            graphics.DrawString(text, font, sbrush, rectangle, stringFormat);
 
             var path = Path.Combine(GetRuntimePath(), fileName + ".bmp");
             bmp.Save(path, ImageFormat.Bmp);
