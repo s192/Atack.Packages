@@ -23,6 +23,7 @@ namespace AStack.BitMapCreator
             //生成【批量转DWG】功能类型选择的图标
             BitmapHelper.CreatCommandTextBmp("2D", "DeTool_DE", 30, Color.OrangeRed, "DWG");
             BitmapHelper.CreatCommandTextBmp("CGM", "DeTool_DC", 25, Color.IndianRed, "DWG");
+            BitmapHelper.CreatCommandTextBmp("PDF", "DeTool_PD", 25, Color.Firebrick, "DWG");
 
             var path = BitmapHelper.GetRuntimePath();
             Process.Start("explorer", "\"" + path + "\"");
