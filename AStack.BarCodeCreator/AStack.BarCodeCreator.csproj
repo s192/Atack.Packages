@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}</ProjectGuid>
+    <ProjectGuid>{0ED37A91-1FFE-4D56-A5AD-69B05698DFF8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AStack.BitMapCreator</RootNamespace>
-    <AssemblyName>AStack.BitMapCreator</AssemblyName>
+    <RootNamespace>AStack.BarCodeCreator</RootNamespace>
+    <AssemblyName>AStack.BarCodeCreator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,8 +36,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,37 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapHelper.cs" />
+    <Compile Include="BarCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\体.bmp" />
-    <EmbeddedResource Include="Image\面.bmp" />
-    <EmbeddedResource Include="Image\全部.bmp" />
-    <EmbeddedResource Include="Image\透明面.bmp" />
-    <EmbeddedResource Include="Image\透明体.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\DWG.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\ClearCorner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\ClearCorner.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\DeTool_LT.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\DeTool_CP.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\DeTool_PC.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

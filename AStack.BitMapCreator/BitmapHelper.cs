@@ -244,6 +244,41 @@ namespace AStack.BitMapCreator
             bmp.Save(path, ImageFormat.Bmp);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="select"></param>
+        public static void CreatCommandTextBmp(string fileName, string backgroundImage)
+        {
+            var bmp = new Bitmap(100, 100);
+
+
+            var graphics = Graphics.FromImage(bmp);
+
+            Bitmap img = null;
+            var assembly = Assembly.GetExecutingAssembly();
+            //获取指定的资源
+            using (Stream stream = assembly.GetManifestResourceStream($"AStack.BitMapCreator.Image.{backgroundImage}.bmp"))
+            {
+                if (stream != null)  //没有找到，GetManifestResourceStream会返回null
+                {
+                    img = new Bitmap(stream);
+                }
+            }
+
+            if (img == null)
+            {
+                return;
+            }
+
+            var descRect = new Rectangle(0, 0, 100, 100);
+            graphics.DrawImage(img, descRect);
+
+            var path = Path.Combine(GetRuntimePath(), fileName + ".bmp");
+            bmp.Save(path, ImageFormat.Bmp);
+        }
+
         public enum DyeEnumType
         {
             面,
