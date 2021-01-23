@@ -19,48 +19,35 @@ namespace Atack.MD5Checker
             InitializeComponent();
         }
 
-        public static string GetFileMD5(string filepath)
+        private static string GetMD5(string filepath)
         {
-            using (FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            return ComputeHash(new MD5CryptoServiceProvider(), filepath);
+        }
+
+        private static string GetSHA1(string filepath)
+        {
+            return ComputeHash(new SHA1CryptoServiceProvider(), filepath);
+        }
+
+        private static string ComputeHash(HashAlgorithm hashAlgorithm, string filepath)
+        {
+            using (var file = new FileStream(filepath, FileMode.Open))
             {
-                int bufferSize = 1048576;
-                byte[] buff = new byte[bufferSize];
-                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-                md5.Initialize();
-                long offset = 0;
-                while (offset < fs.Length)
+                byte[] retval = hashAlgorithm.ComputeHash(file);
+                file.Close();
+
+                var sc = new StringBuilder();
+                for (int i = 0; i < retval.Length; i++)
                 {
-                    long readSize = bufferSize;
-                    if (offset + readSize > fs.Length)
-                        readSize = fs.Length - offset;
-                    fs.Read(buff, 0, Convert.ToInt32(readSize));
-                    if (offset + readSize < fs.Length)
-                        md5.TransformBlock(buff, 0, Convert.ToInt32(readSize), buff, 0);
-                    else
-                        md5.TransformFinalBlock(buff, 0, Convert.ToInt32(readSize));
-                    offset += bufferSize;
+                    sc.Append(retval[i].ToString("x2"));
                 }
-                if (offset >= fs.Length)
-                {
-                    fs.Close();
-                    byte[] result = md5.Hash;
-                    md5.Clear();
-                    StringBuilder sb = new StringBuilder(32);
-                    for (int i = 0; i < result.Length; i++)
-                        sb.Append(result[i].ToString("X2"));
-                    return sb.ToString();
-                }
-                else
-                {
-                    fs.Close();
-                    return null;
-                }
+                return sc.ToString();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.textBox2.Text = GetFileMD5(this.textBox1.Text.Trim());
+            this.textBox2.Text = GetMD5(this.textBox1.Text.Trim());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,6 +65,11 @@ namespace Atack.MD5Checker
             {
                 this.textBox1.Text = fileName;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.textBox2.Text = GetSHA1(this.textBox1.Text.Trim());
         }
     }
 }
