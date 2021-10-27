@@ -89,7 +89,7 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "输出文件路径：";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(690, 490);
             this.MinimumSize = new System.Drawing.Size(690, 490);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "合并PDF";
             this.ResumeLayout(false);
