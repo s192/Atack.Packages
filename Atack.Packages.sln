@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.MD5Checker", "Atack.MD5Checker\Atack.MD5Checker.csproj", "{7B2474A1-A71A-4D81-8FC8-44AD265063EC}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.BitMapCreator", "AStack.BitMapCreator\AStack.BitMapCreator.csproj", "{A824C0A3-4D06-4210-AE09-B2D7D1DCDD77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.BarCodeCreator", "AStack.BarCodeCreator\AStack.BarCodeCreator.csproj", "{0ED37A91-1FFE-4D56-A5AD-69B05698DFF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.Receptionist", "Atack.Receptionist\Atack.Receptionist.csproj", "{2BB7EAF9-1076-45F6-9286-7D1D028437AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.PdfConverter.Word", "AStack.PdfConverter.Word\AStack.PdfConverter.Word.csproj", "{7BA44E23-E6F2-4C9D-BE3D-268F3654A100}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{0ED37A91-1FFE-4D56-A5AD-69B05698DFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ED37A91-1FFE-4D56-A5AD-69B05698DFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ED37A91-1FFE-4D56-A5AD-69B05698DFF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB7EAF9-1076-45F6-9286-7D1D028437AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB7EAF9-1076-45F6-9286-7D1D028437AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB7EAF9-1076-45F6-9286-7D1D028437AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB7EAF9-1076-45F6-9286-7D1D028437AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA44E23-E6F2-4C9D-BE3D-268F3654A100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA44E23-E6F2-4C9D-BE3D-268F3654A100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA44E23-E6F2-4C9D-BE3D-268F3654A100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA44E23-E6F2-4C9D-BE3D-268F3654A100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
