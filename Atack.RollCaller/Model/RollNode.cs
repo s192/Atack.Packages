@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-
-namespace Atack.RollCaller.Model
+﻿namespace Atack.RollCaller.Model
 {
     public class RollNode : TreeNode
     {

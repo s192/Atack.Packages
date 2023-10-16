@@ -1,18 +1,9 @@
-﻿using Atack.RollCaller.Utils;
-using Atack.RollCaller.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Atack.RollCaller.Model;
+using Atack.RollCaller.Utils;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Atack.RollCaller
+namespace Atack.RollCaller.Controls
 {
     public partial class ImportControl : UserControl
     {

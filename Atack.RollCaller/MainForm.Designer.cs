@@ -1,4 +1,6 @@
-﻿namespace Atack.RollCaller
+﻿using Atack.RollCaller.Controls;
+
+namespace Atack.RollCaller
 {
     partial class MainForm
     {

@@ -1,4 +1,4 @@
-﻿namespace Atack.RollCaller
+﻿namespace Atack.RollCaller.Controls
 {
     partial class RollControl
     {

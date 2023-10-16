@@ -1,4 +1,4 @@
-using Atack.RollCaller.Model;
+using Atack.RollCaller.Controls;
 using Atack.RollCaller.Utils;
 
 namespace Atack.RollCaller
