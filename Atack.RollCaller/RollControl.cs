@@ -28,6 +28,11 @@ namespace Atack.RollCaller
 
         public RollNode RollNode { get; internal set; }
 
+        private void BactButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
             if (_isFrist == false)
@@ -58,16 +63,6 @@ namespace Atack.RollCaller
             _isFrist = false;
         }
 
-        private void Button_Click(object? sender, EventArgs e)
-        {
-            if (sender is Button == false)
-                return;
-
-            var button = (Button)sender;
-            var node = (RollNode)button.Tag;
-            RollControl.Create(node, panel1);
-        }
-
         private void RollTimer_Tick(object sender, EventArgs e)
         {
             var random = new Random();
@@ -86,12 +81,20 @@ namespace Atack.RollCaller
         private void StopButton_Click(object sender, EventArgs e)
         {
             RollTimer.Stop();
-            _buttons[0].Click += Button_Click;
+            _buttons[0].Click += NodeButton_Click;
         }
 
-        private void BactButton_Click(object sender, EventArgs e)
+        private void NodeButton_Click(object? sender, EventArgs e)
         {
-            this.Dispose();
+            if (sender is Button == false)
+                return;
+
+            var button = (Button)sender;
+            var node = (RollNode)button.Tag;
+            var newRollControl = RollControl.Create(node, panel1);
+            if (newRollControl == null)
+                node.ShowTag();
+
         }
 
         public static RollControl? Create(RollNode rollNode, Panel panel)

@@ -43,6 +43,21 @@ namespace Atack.RollCaller
             return _instance;
         }
 
+        private void RollNodesTreeView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)//判断你点的是不是右键           
+                return;
+
+            Point ClickPoint = new Point(e.X, e.Y);
+            TreeNode CurrentNode = RollNodesTreeView.GetNodeAt(ClickPoint);
+            if (CurrentNode == null)//判断你点的是不是一个节点               
+                return;
+
+            RollNodesTreeView.SelectedNode = CurrentNode;//选中这个节点
+        }
+
+        #region 右键菜单点击事件
+
         private void Import_StripMenuItem_Click(object sender, EventArgs e)
         {
             var selectedNode = RollNodesTreeView.SelectedNode as RollNode;
@@ -98,23 +113,12 @@ namespace Atack.RollCaller
             selectedNode.Nodes.Clear();
         }
 
-        private void RollNodesTreeView_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Right)//判断你点的是不是右键           
-                return;
-
-            Point ClickPoint = new Point(e.X, e.Y);
-            TreeNode CurrentNode = RollNodesTreeView.GetNodeAt(ClickPoint);
-            if (CurrentNode == null)//判断你点的是不是一个节点               
-                return;
-
-            RollNodesTreeView.SelectedNode = CurrentNode;//选中这个节点
-        }
-
         private void More_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var selectedNode = RollNodesTreeView.SelectedNode as RollNode;
-            MessageBox.Show(this, selectedNode?.Tag?.ToString() ?? string.Empty, "详情", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var selectedNode = (RollNode)RollNodesTreeView.SelectedNode;
+            selectedNode.ShowTag(this);
         }
+
+        #endregion
     }
 }
