@@ -26,18 +26,19 @@ namespace Atack.RollCaller.Controls
         {
             if (_isFrist == false)
                 return;
-            var x = panel1.Width / 2 - 400;
-            var y = panel1.Height / 2 - 200;
+
+            var x = panel1.Width / 2 - 750;
+            var y = panel1.Height / 2 - 250;
             var button = new Button();
             panel1.Controls.Add(button);
             _buttons.Add(button);
 
             button.Location = new Point(x, y);
             button.Name = "button1";
-            button.Size = new Size(800, 400);
+            button.Size = new Size(1500, 500);
             button.TabIndex = 0;
             button.Text = RollNode.Nodes[0].Text;
-            button.Font = new Font("Microsoft YaHei UI", 126.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button.Font = new Font("楷体", 226.25F, FontStyle.Bold, GraphicsUnit.Point);
             button.UseVisualStyleBackColor = true;
 
             button.FlatStyle = FlatStyle.Flat;
