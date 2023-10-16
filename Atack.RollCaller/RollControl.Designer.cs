@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            ExitButton = new Button();
+            BactButton = new Button();
             StopButton = new Button();
             RollTimer = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
@@ -38,7 +38,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(ExitButton);
+            panel1.Controls.Add(BactButton);
             panel1.Controls.Add(StopButton);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -48,19 +48,19 @@
             panel1.MouseClick += panel1_MouseClick;
             panel1.MouseEnter += panel1_MouseEnter;
             // 
-            // ExitButton
+            // BactButton
             // 
-            ExitButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            ExitButton.ForeColor = SystemColors.ControlText;
-            ExitButton.Location = new Point(12, 12);
-            ExitButton.MaximumSize = new Size(60, 60);
-            ExitButton.MinimumSize = new Size(60, 60);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(60, 60);
-            ExitButton.TabIndex = 6;
-            ExitButton.Text = "<";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            BactButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            BactButton.ForeColor = SystemColors.ControlText;
+            BactButton.Location = new Point(12, 12);
+            BactButton.MaximumSize = new Size(60, 60);
+            BactButton.MinimumSize = new Size(60, 60);
+            BactButton.Name = "BactButton";
+            BactButton.Size = new Size(60, 60);
+            BactButton.TabIndex = 6;
+            BactButton.Text = "<";
+            BactButton.UseVisualStyleBackColor = true;
+            BactButton.Click += BactButton_Click;
             // 
             // StopButton
             // 
@@ -96,6 +96,6 @@
         private Panel panel1;
         private System.Windows.Forms.Timer RollTimer;
         private Button StopButton;
-        private Button ExitButton;
+        private Button BactButton;
     }
 }

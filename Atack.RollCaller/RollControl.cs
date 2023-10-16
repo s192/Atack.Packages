@@ -26,7 +26,7 @@ namespace Atack.RollCaller
             _buttons = new List<Button>();
         }
 
-        public RollNodeCollection RollNodes { get; internal set; }
+        public RollNode RollNode { get; internal set; }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace Atack.RollCaller
             button.Name = "button1";
             button.Size = new Size(800, 400);
             button.TabIndex = 0;
-            button.Text = RollNodes[0].Name;
+            button.Text = RollNode.Children[0].Name;
             button.Font = new Font("Microsoft YaHei UI", 126.25F, FontStyle.Bold, GraphicsUnit.Point);
             button.UseVisualStyleBackColor = true;
 
@@ -58,17 +58,25 @@ namespace Atack.RollCaller
             _isFrist = false;
         }
 
+        private void Button_Click(object? sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var rollControl = RollControl.Create(button.Tag as RollNode);
+            panel1.Controls.Add(rollControl);
+            rollControl.BringToFront();
+        }
+
         private void RollTimer_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
             int index = 0;
             RollNode rollNode;
 
-            index = random.Next(RollNodes.Count);
-            rollNode = RollNodes[index];
+            index = random.Next(RollNode.Children.Count);
+            rollNode = RollNode.Children[index];
 
             _buttons[0].Text = rollNode.Name;
-
+            _buttons[0].Tag = rollNode;
         }
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
@@ -79,11 +87,29 @@ namespace Atack.RollCaller
         private void StopButton_Click(object sender, EventArgs e)
         {
             RollTimer.Stop();
+            _buttons[0].Click += Button_Click;
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void BactButton_Click(object sender, EventArgs e)
         {
+            this.Dispose();
+        }
 
+        public static RollControl Create(RollNode rollNode)
+        {
+            RollControl rollControl = new RollControl();
+
+            rollControl.RollNode = rollNode;
+
+            //rollControl.Location = new Point(0, 0);
+            rollControl.MinimumSize = new Size(800, 450);
+            //rollControl.Name = "rollControl1";
+            //rollControl.Size = new Size(800, 450);
+            //rollControl.TabIndex = 7;
+
+            rollControl.Dock = DockStyle.Fill;
+
+            return rollControl;
         }
     }
 }

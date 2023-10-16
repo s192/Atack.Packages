@@ -57,6 +57,7 @@
             label1.Size = new Size(195, 46);
             label1.TabIndex = 6;
             label1.Text = "点名人数：";
+            label1.Visible = false;
             // 
             // CountNumericUpDown
             // 
@@ -70,6 +71,7 @@
             CountNumericUpDown.Size = new Size(53, 52);
             CountNumericUpDown.TabIndex = 5;
             CountNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            CountNumericUpDown.Visible = false;
             // 
             // StartButton
             // 
