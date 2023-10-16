@@ -54,7 +54,8 @@ namespace Atack.RollCaller
             // startControl1
             // 
             startControl1.BackColor = Color.Transparent;
-            startControl1.Location = new Point(106, 59);
+            startControl1.Dock = DockStyle.Fill;
+            startControl1.Location = new Point(0, 0);
             startControl1.MinimumSize = new Size(800, 450);
             startControl1.Name = "startControl1";
             startControl1.Size = new Size(800, 450);

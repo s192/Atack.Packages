@@ -63,15 +63,22 @@ namespace Atack.RollCaller.Controls
             _buttons[0].Tag = rollNode;
         }
 
-        private void panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void StopButton_Click(object sender, EventArgs e)
         {
-            RollTimer.Stop();
-            _buttons[0].Click += NodeButton_Click;
+            switch (StopButton.Text)
+            {
+                case "开始":
+                    RollTimer.Start();
+                    StopButton.Text = "停止";
+                    break;
+                case "停止":
+                    RollTimer.Stop();
+                    _buttons[0].Click += NodeButton_Click;
+                    StopButton.Text = "开始";
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void NodeButton_Click(object? sender, EventArgs e)

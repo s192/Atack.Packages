@@ -9,9 +9,6 @@ namespace Atack.RollCaller
         {
             InitializeComponent();
 
-            ExitButton.BringToFront();
-            startControl1.Dock = DockStyle.Fill;
-
             startControl1.RootNode = RollConstant.Root;
         }
 
@@ -27,7 +24,13 @@ namespace Atack.RollCaller
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            startControl1.BringToFront();
+            ImportButton.BringToFront();
+            SetPictureButton.BringToFront();
+
             ImportControl.GetInstance(this).Show();
+
+            ExitButton.BringToFront();
         }
 
         private void SetPictureButton_Click(object sender, EventArgs e)

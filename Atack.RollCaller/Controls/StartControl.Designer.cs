@@ -29,49 +29,18 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
-            CountNumericUpDown = new NumericUpDown();
             StartButton = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CountNumericUpDown).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(CountNumericUpDown);
             panel1.Controls.Add(StartButton);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(260, 259);
-            label1.Name = "label1";
-            label1.Size = new Size(195, 46);
-            label1.TabIndex = 6;
-            label1.Text = "点名人数：";
-            label1.Visible = false;
-            // 
-            // CountNumericUpDown
-            // 
-            CountNumericUpDown.Anchor = AnchorStyles.None;
-            CountNumericUpDown.Font = new Font("Microsoft YaHei UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            CountNumericUpDown.Location = new Point(472, 257);
-            CountNumericUpDown.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-            CountNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            CountNumericUpDown.Name = "CountNumericUpDown";
-            CountNumericUpDown.ReadOnly = true;
-            CountNumericUpDown.Size = new Size(53, 52);
-            CountNumericUpDown.TabIndex = 5;
-            CountNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            CountNumericUpDown.Visible = false;
             // 
             // StartButton
             // 
@@ -97,16 +66,12 @@
             Name = "StartControl";
             Size = new Size(800, 450);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)CountNumericUpDown).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private NumericUpDown CountNumericUpDown;
         private Button StartButton;
     }
 }

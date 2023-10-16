@@ -45,7 +45,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
-            panel1.MouseClick += panel1_MouseClick;
             panel1.MouseEnter += panel1_MouseEnter;
             // 
             // BactButton
