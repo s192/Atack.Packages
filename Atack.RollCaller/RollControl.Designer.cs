@@ -50,15 +50,15 @@
             // 
             // BactButton
             // 
-            BactButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            BactButton.Anchor = AnchorStyles.Bottom;
+            BactButton.Font = new Font("Microsoft YaHei UI", 42F, FontStyle.Bold, GraphicsUnit.Point);
             BactButton.ForeColor = SystemColors.ControlText;
-            BactButton.Location = new Point(12, 12);
-            BactButton.MaximumSize = new Size(60, 60);
-            BactButton.MinimumSize = new Size(60, 60);
+            BactButton.Location = new Point(120, 330);
+            BactButton.MinimumSize = new Size(280, 110);
             BactButton.Name = "BactButton";
-            BactButton.Size = new Size(60, 60);
+            BactButton.Size = new Size(280, 110);
             BactButton.TabIndex = 6;
-            BactButton.Text = "<";
+            BactButton.Text = "返回";
             BactButton.UseVisualStyleBackColor = true;
             BactButton.Click += BactButton_Click;
             // 
@@ -66,7 +66,7 @@
             // 
             StopButton.Anchor = AnchorStyles.Bottom;
             StopButton.Font = new Font("Microsoft YaHei UI", 42F, FontStyle.Bold, GraphicsUnit.Point);
-            StopButton.Location = new Point(260, 318);
+            StopButton.Location = new Point(400, 330);
             StopButton.MinimumSize = new Size(280, 110);
             StopButton.Name = "StopButton";
             StopButton.Size = new Size(280, 110);
@@ -83,6 +83,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
             Controls.Add(panel1);
             MinimumSize = new Size(800, 450);
             Name = "RollControl";

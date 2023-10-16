@@ -31,6 +31,7 @@
             ExitButton = new Button();
             startControl1 = new StartControl();
             ImportButton = new Button();
+            SetPictureButton = new Button();
             SuspendLayout();
             // 
             // ExitButton
@@ -50,6 +51,7 @@
             // 
             // startControl1
             // 
+            startControl1.BackColor = Color.Transparent;
             startControl1.Location = new Point(106, 59);
             startControl1.MinimumSize = new Size(800, 450);
             startControl1.Name = "startControl1";
@@ -61,7 +63,7 @@
             ImportButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ImportButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
             ImportButton.ForeColor = SystemColors.ControlText;
-            ImportButton.Location = new Point(594, 12);
+            ImportButton.Location = new Point(537, 12);
             ImportButton.MaximumSize = new Size(60, 60);
             ImportButton.MinimumSize = new Size(60, 60);
             ImportButton.Name = "ImportButton";
@@ -71,14 +73,33 @@
             ImportButton.UseVisualStyleBackColor = true;
             ImportButton.Click += ImportButton_Click;
             // 
+            // SetPictureButton
+            // 
+            SetPictureButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SetPictureButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            SetPictureButton.ForeColor = SystemColors.ControlText;
+            SetPictureButton.Location = new Point(603, 12);
+            SetPictureButton.MaximumSize = new Size(60, 60);
+            SetPictureButton.MinimumSize = new Size(60, 60);
+            SetPictureButton.Name = "SetPictureButton";
+            SetPictureButton.Size = new Size(60, 60);
+            SetPictureButton.TabIndex = 3;
+            SetPictureButton.Text = "B";
+            SetPictureButton.UseVisualStyleBackColor = true;
+            SetPictureButton.Click += SetPictureButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackgroundImage = Properties.Resources.R_C;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(SetPictureButton);
             Controls.Add(ImportButton);
             Controls.Add(ExitButton);
             Controls.Add(startControl1);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(800, 450);
             Name = "MainForm";
@@ -94,5 +115,6 @@
         private Button ExitButton;
         private StartControl startControl1;
         private Button ImportButton;
+        private Button SetPictureButton;
     }
 }
