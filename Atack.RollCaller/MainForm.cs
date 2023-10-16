@@ -1,4 +1,5 @@
 using Atack.RollCaller.Model;
+using Atack.RollCaller.Utils;
 
 namespace Atack.RollCaller
 {
@@ -11,32 +12,22 @@ namespace Atack.RollCaller
             ExitButton.BringToFront();
             startControl1.Dock = DockStyle.Fill;
 
-#warning ²âÊÔÊý¾Ý
-            var rollNode = new RollNode("root");
-            var node1 = new RollNode("¿üÎÄ");
-            node1.Children.Add(new RollNode("¿üÎÄ1"));
-            node1.Children.Add(new RollNode("¿üÎÄ2"));
-            node1.Children.Add(new RollNode("¿üÎÄ3"));
-            rollNode.Children.Add(node1);
-
-            var node2 = new RollNode("º®Í¤");
-            node2.Children.Add(new RollNode("º®Í¤1"));
-            node2.Children.Add(new RollNode("º®Í¤2"));
-            node2.Children.Add(new RollNode("º®Í¤3"));
-            rollNode.Children.Add(node2);
-
-            var node3 = new RollNode("Î«³Ç");
-            node3.Children.Add(new RollNode("Î«³Ç1"));
-            node3.Children.Add(new RollNode("Î«³Ç2"));
-            node3.Children.Add(new RollNode("Î«³Ç3"));
-            rollNode.Children.Add(node3);
-
-            startControl1.RootNode = rollNode;
+            startControl1.RootNode = RollConstant.Root;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            ImportControl.GetInstance(this).Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ImportControl.GetInstance(this).Show();
         }
     }
 }

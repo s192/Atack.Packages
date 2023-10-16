@@ -30,6 +30,7 @@
         {
             ExitButton = new Button();
             startControl1 = new StartControl();
+            ImportButton = new Button();
             SuspendLayout();
             // 
             // ExitButton
@@ -37,7 +38,7 @@
             ExitButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ExitButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
             ExitButton.ForeColor = SystemColors.ControlText;
-            ExitButton.Location = new Point(720, 12);
+            ExitButton.Location = new Point(728, 12);
             ExitButton.MaximumSize = new Size(60, 60);
             ExitButton.MinimumSize = new Size(60, 60);
             ExitButton.Name = "ExitButton";
@@ -55,19 +56,36 @@
             startControl1.Size = new Size(800, 450);
             startControl1.TabIndex = 1;
             // 
+            // ImportButton
+            // 
+            ImportButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ImportButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            ImportButton.ForeColor = SystemColors.ControlText;
+            ImportButton.Location = new Point(594, 12);
+            ImportButton.MaximumSize = new Size(60, 60);
+            ImportButton.MinimumSize = new Size(60, 60);
+            ImportButton.Name = "ImportButton";
+            ImportButton.Size = new Size(60, 60);
+            ImportButton.TabIndex = 2;
+            ImportButton.Text = "I";
+            ImportButton.UseVisualStyleBackColor = true;
+            ImportButton.Click += ImportButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(800, 450);
-            Controls.Add(startControl1);
+            Controls.Add(ImportButton);
             Controls.Add(ExitButton);
+            Controls.Add(startControl1);
             FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(800, 450);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "随机点名";
             WindowState = FormWindowState.Maximized;
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
@@ -75,5 +93,6 @@
 
         private Button ExitButton;
         private StartControl startControl1;
+        private Button ImportButton;
     }
 }

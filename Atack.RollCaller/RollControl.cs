@@ -42,7 +42,7 @@ namespace Atack.RollCaller
             button.Name = "button1";
             button.Size = new Size(800, 400);
             button.TabIndex = 0;
-            button.Text = RollNode.Children[0].Name;
+            button.Text = RollNode.Nodes[0].Text;
             button.Font = new Font("Microsoft YaHei UI", 126.25F, FontStyle.Bold, GraphicsUnit.Point);
             button.UseVisualStyleBackColor = true;
 
@@ -60,22 +60,21 @@ namespace Atack.RollCaller
 
         private void Button_Click(object? sender, EventArgs e)
         {
-            var button = sender as Button;
-            var rollControl = RollControl.Create(button.Tag as RollNode);
-            panel1.Controls.Add(rollControl);
-            rollControl.BringToFront();
+            if (sender is Button == false)
+                return;
+
+            var button = (Button)sender;
+            var node = (RollNode)button.Tag;
+            RollControl.Create(node, panel1);
         }
 
         private void RollTimer_Tick(object sender, EventArgs e)
         {
-            Random random = new Random();
-            int index = 0;
-            RollNode rollNode;
+            var random = new Random();
+            var index = random.Next(RollNode.Nodes.Count);
+            var rollNode = RollNode.Nodes[index] as RollNode;
 
-            index = random.Next(RollNode.Children.Count);
-            rollNode = RollNode.Children[index];
-
-            _buttons[0].Text = rollNode.Name;
+            _buttons[0].Text = rollNode.Text;
             _buttons[0].Tag = rollNode;
         }
 
@@ -95,19 +94,18 @@ namespace Atack.RollCaller
             this.Dispose();
         }
 
-        public static RollControl Create(RollNode rollNode)
+        public static RollControl? Create(RollNode rollNode, Panel panel)
         {
-            RollControl rollControl = new RollControl();
+            if (rollNode.Nodes.Count == 0)
+                return null;
 
+            var rollControl = new RollControl();
             rollControl.RollNode = rollNode;
 
-            //rollControl.Location = new Point(0, 0);
-            rollControl.MinimumSize = new Size(800, 450);
-            //rollControl.Name = "rollControl1";
-            //rollControl.Size = new Size(800, 450);
-            //rollControl.TabIndex = 7;
+            panel.Controls.Add(rollControl);
 
             rollControl.Dock = DockStyle.Fill;
+            rollControl.BringToFront();
 
             return rollControl;
         }

@@ -23,9 +23,7 @@ namespace Atack.RollCaller
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            var rollControl = RollControl.Create(RootNode);
-            panel1.Controls.Add(rollControl);
-            rollControl.BringToFront();
+            RollControl.Create(RootNode, panel1);
         }
     }
 }
