@@ -52,6 +52,22 @@ namespace Atack.RollCaller
                 return;
 
             var filePath = openFileDialog.FileName;
+            ImportChildren(selectedNode, filePath, true);
+        }
+
+        private void ImportChildren(RollNode parentNode, string filePath, bool isTopNode)
+        {
+            if (isTopNode == false)
+            {
+                var dir = Path.GetDirectoryName(filePath);
+                filePath = Path.Combine(dir, parentNode.Text + ".xls");
+                if (File.Exists(filePath) == false)
+                    filePath = Path.Combine(dir, parentNode.Text + ".xlsx");
+
+                if (File.Exists(filePath) == false)
+                    return;
+            }
+
             //打开工作簿
             var dataSet = ExcelReaderUtilityr.Opene2DataSet(filePath);
             var dataTable = dataSet.Tables[0];
@@ -64,9 +80,10 @@ namespace Atack.RollCaller
                     stringBuilder.Append(str);
                     stringBuilder.Append(Environment.NewLine);
                 }
-                selectedNode.Nodes.Add(new RollNode(array[0], stringBuilder.ToString()));
+                var node = new RollNode(array[0], stringBuilder.ToString());
+                parentNode.Nodes.Add(node);
+                ImportChildren(node, filePath, false);
             }
-            selectedNode.Expand();
         }
 
         private void Remove_ToolStripMenuItem_Click(object sender, EventArgs e)
