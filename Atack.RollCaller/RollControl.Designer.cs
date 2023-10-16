@@ -28,17 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            ExitButton = new Button();
+            StopButton = new Button();
+            RollTimer = new System.Windows.Forms.Timer(components);
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(ExitButton);
+            panel1.Controls.Add(StopButton);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
+            panel1.MouseClick += panel1_MouseClick;
             panel1.MouseEnter += panel1_MouseEnter;
+            // 
+            // ExitButton
+            // 
+            ExitButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            ExitButton.ForeColor = SystemColors.ControlText;
+            ExitButton.Location = new Point(12, 12);
+            ExitButton.MaximumSize = new Size(60, 60);
+            ExitButton.MinimumSize = new Size(60, 60);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(60, 60);
+            ExitButton.TabIndex = 6;
+            ExitButton.Text = "<";
+            ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
+            // 
+            // StopButton
+            // 
+            StopButton.Anchor = AnchorStyles.Bottom;
+            StopButton.Font = new Font("Microsoft YaHei UI", 42F, FontStyle.Bold, GraphicsUnit.Point);
+            StopButton.Location = new Point(260, 318);
+            StopButton.MinimumSize = new Size(280, 110);
+            StopButton.Name = "StopButton";
+            StopButton.Size = new Size(280, 110);
+            StopButton.TabIndex = 5;
+            StopButton.Text = "停止";
+            StopButton.UseVisualStyleBackColor = true;
+            StopButton.Click += StopButton_Click;
+            // 
+            // RollTimer
+            // 
+            RollTimer.Tick += RollTimer_Tick;
             // 
             // RollControl
             // 
@@ -48,11 +87,15 @@
             MinimumSize = new Size(800, 450);
             Name = "RollControl";
             Size = new Size(800, 450);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
+        private System.Windows.Forms.Timer RollTimer;
+        private Button StopButton;
+        private Button ExitButton;
     }
 }
