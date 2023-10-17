@@ -52,6 +52,7 @@
             // 
             NodeButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             NodeButton.FlatAppearance.BorderSize = 0;
+            NodeButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
             NodeButton.FlatStyle = FlatStyle.Flat;
             NodeButton.Font = new Font("楷体", 42F, FontStyle.Bold, GraphicsUnit.Point);
             NodeButton.Location = new Point(0, 100);
