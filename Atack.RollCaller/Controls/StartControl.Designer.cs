@@ -57,8 +57,8 @@
             // 
             // StartControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.Transparent;
             Controls.Add(panel1);
             MinimumSize = new Size(800, 450);
