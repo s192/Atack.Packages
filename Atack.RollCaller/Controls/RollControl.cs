@@ -1,4 +1,6 @@
 ﻿using Atack.RollCaller.Model;
+using System;
+using System.Reflection;
 
 namespace Atack.RollCaller.Controls
 {
@@ -47,7 +49,7 @@ namespace Atack.RollCaller.Controls
             button.FlatAppearance.BorderSize = 0;
 
             RollTimer.Enabled = true;
-            RollTimer.Interval = 10; //执行间隔时间,单位为毫秒; 这里实际间隔为10分钟  
+            RollTimer.Interval = 10;
             RollTimer.Start();
 
             _isFrist = false;
@@ -57,7 +59,7 @@ namespace Atack.RollCaller.Controls
         {
             var random = new Random();
             var index = random.Next(RollNode.Nodes.Count);
-            var rollNode = RollNode.Nodes[index] as RollNode;
+            var rollNode = (RollNode)RollNode.Nodes[index];
 
             _buttons[0].Text = rollNode.Text;
             _buttons[0].Tag = rollNode;
@@ -73,6 +75,19 @@ namespace Atack.RollCaller.Controls
                     break;
                 case "停止":
                     RollTimer.Stop();
+
+#warning 排除坊子的逻辑，共享时须删除
+                    RollNode rollNode;
+                    do
+                    {
+                        var random = new Random();
+                        var index = random.Next(RollNode.Nodes.Count);
+                        rollNode = (RollNode)RollNode.Nodes[index];
+
+                        _buttons[0].Text = rollNode.Text;
+                        _buttons[0].Tag = rollNode;
+                    } while (rollNode.Text == "坊子");
+
                     _buttons[0].Click += NodeButton_Click;
                     StopButton.Text = "开始";
                     break;
