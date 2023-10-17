@@ -61,6 +61,7 @@
             NodeButton.TabIndex = 2;
             NodeButton.Text = "姓名";
             NodeButton.UseVisualStyleBackColor = true;
+            NodeButton.Paint += NodeButton_Paint;
             // 
             // BackButton
             // 
@@ -91,6 +92,7 @@
             // 
             // RollTimer
             // 
+            RollTimer.Enabled = true;
             RollTimer.Tick += RollTimer_Tick;
             // 
             // RollControl
@@ -98,11 +100,14 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            BackgroundImage = Properties.Resources.R_C_rolling;
+            BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(panel1);
             MinimumSize = new Size(800, 450);
             Name = "RollControl";
             Size = new Size(800, 450);
             Load += RollControl_Load;
+            Leave += RollControl_Leave;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

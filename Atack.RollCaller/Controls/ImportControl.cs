@@ -92,37 +92,6 @@ namespace Atack.RollCaller.Controls
             ImportChildren(selectedNode, filePath, true);
         }
 
-        private void ImportChildren(RollNode parentNode, string filePath, bool isTopNode)
-        {
-            if (isTopNode == false)
-            {
-                var dir = Path.GetDirectoryName(filePath);
-                filePath = Path.Combine(dir, parentNode.Text + ".xls");
-                if (File.Exists(filePath) == false)
-                    filePath = Path.Combine(dir, parentNode.Text + ".xlsx");
-
-                if (File.Exists(filePath) == false)
-                    return;
-            }
-
-            //打开工作簿
-            var dataSet = ExcelReaderUtilityr.Opene2DataSet(filePath);
-            var dataTable = dataSet.Tables[0];
-            foreach (DataRow row in dataTable.Rows)
-            {
-                var array = row.ItemArray.Select(s => s.ToString()).ToArray();
-                var stringBuilder = new StringBuilder();
-                foreach (var str in array)
-                {
-                    stringBuilder.Append(str);
-                    stringBuilder.Append(Environment.NewLine);
-                }
-                var node = new RollNode(array[0], stringBuilder.ToString());
-                parentNode.Nodes.Add(node);
-                ImportChildren(node, filePath, false);
-            }
-        }
-
         private void Remove_StripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveNode(RollNodesTreeView.SelectedNode);
@@ -154,6 +123,37 @@ namespace Atack.RollCaller.Controls
                 return;
             }
             node.Remove();
+        }
+
+        public static void ImportChildren(RollNode parentNode, string filePath, bool isTopNode)
+        {
+            if (isTopNode == false)
+            {
+                var dir = Path.GetDirectoryName(filePath);
+                filePath = Path.Combine(dir, parentNode.Text + ".xls");
+                if (File.Exists(filePath) == false)
+                    filePath = Path.Combine(dir, parentNode.Text + ".xlsx");
+
+                if (File.Exists(filePath) == false)
+                    return;
+            }
+
+            //打开工作簿
+            var dataSet = ExcelReaderUtilityr.Opene2DataSet(filePath);
+            var dataTable = dataSet.Tables[0];
+            foreach (DataRow row in dataTable.Rows)
+            {
+                var array = row.ItemArray.Select(s => s.ToString()).ToArray();
+                var stringBuilder = new StringBuilder();
+                foreach (var str in array)
+                {
+                    stringBuilder.Append(str);
+                    stringBuilder.Append(Environment.NewLine);
+                }
+                var node = new RollNode(array[0], stringBuilder.ToString());
+                parentNode.Nodes.Add(node);
+                ImportChildren(node, filePath, false);
+            }
         }
     }
 }

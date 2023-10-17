@@ -1,13 +1,21 @@
 ﻿using Atack.RollCaller.Model;
+using Atack.RollCaller.Properties;
 using Atack.RollCaller.Utils;
+using System.Drawing.Drawing2D;
+using System.Media;
 
 namespace Atack.RollCaller.Controls
 {
     public partial class RollControl : UserControl
     {
+        private SoundPlayer _soundPlayer;
+
         public RollControl()
         {
             InitializeComponent();
+
+            RollTimer.Interval = 10;
+            _soundPlayer = new SoundPlayer();
         }
 
         public RollNode ParentNode { get; internal set; }
@@ -29,6 +37,7 @@ namespace Atack.RollCaller.Controls
 
         private void StopButton_Click(object sender, EventArgs e)
         {
+            SoundPlayer soundPlayer;
             switch (StopButton.Text)
             {
                 case "开始":
@@ -48,14 +57,10 @@ namespace Atack.RollCaller.Controls
                         return;
                     }
                     //开始滚动
-                    NodeButton.Click -= NodeButton_Click;
-                    RollTimer.Start();
-                    StopButton.Text = "停止";
+                    StartRolling();
                     break;
                 case "停止":
-                    //停止滚动
-                    RollTimer.Stop();
-
+                    StopRolling();
 #warning 排除坊子的逻辑，共享时须删除
                     RollNode rollNode;
                     do
@@ -71,8 +76,6 @@ namespace Atack.RollCaller.Controls
                     if (rollNode.Nodes.Count == 0)
                         RollConstant.CalledNodeList.Add(rollNode);
 
-                    NodeButton.Click += NodeButton_Click;
-                    StopButton.Text = "开始";
                     break;
                 default:
                     break;
@@ -117,9 +120,71 @@ namespace Atack.RollCaller.Controls
             NodeButton.Text = ParentNode.Nodes[0].Text;
             NodeButton.Font = new Font("楷体", 226.25F, FontStyle.Bold, GraphicsUnit.Point);
 
-            RollTimer.Enabled = true;
-            RollTimer.Interval = 10;
+            StartRolling();
+        }
+
+        #region 绘制阴影
+
+        private void NodeButton_Paint(object sender, PaintEventArgs e)
+        {
+            var text = NodeButton.Text;
+            if (text == null || text.Length < 1)
+                return;
+
+            var graphics = e.Graphics;
+            var font = NodeButton.Font;
+            RectangleF rectangleF = e.ClipRectangle;
+            //计算垂直偏移
+            float dy = (e.ClipRectangle.Height - graphics.MeasureString(text, font).Height) / 2.0f + 50;
+            //计算水平偏移
+            float dx = (e.ClipRectangle.Width - graphics.MeasureString(text, font).Width) / 2.0f + 50;
+            //将文字显示的工作区偏移dx,dy，实现文字居中、水平居中、垂直居中
+            rectangleF.Offset(dx, dy);
+            float dpi = graphics.DpiY;
+            //阴影颜色
+            var solidBrush = new SolidBrush(Color.FromArgb(100, 0, 0, 0));
+            using (GraphicsPath offPath = GetStringPath(text, dpi, rectangleF, font))
+            {
+                graphics.FillPath(solidBrush, offPath);
+                solidBrush.Dispose();
+            }
+        }
+
+        private GraphicsPath GetStringPath(string s, float dpi, RectangleF rect, Font font)
+        {
+            GraphicsPath path = new GraphicsPath();
+            //计算文字高度
+            float emSize = dpi * font.SizeInPoints / 72;
+            //向path中添加字符串及相应信息 
+            //文本布局信息 详细功能请查看注释 这里可有可无
+            path.AddString(s, font.FontFamily, (int)font.Style, emSize, rect, StringFormat.GenericTypographic);
+            return path;
+        }
+
+        #endregion
+
+        private void StartRolling()
+        {
+            NodeButton.Click -= NodeButton_Click;
             RollTimer.Start();
+            StopButton.Text = "停止";
+            _soundPlayer.Stream = Resources.rolling;
+            _soundPlayer.PlayLooping();
+        }
+
+        private void StopRolling()
+        {
+            NodeButton.Click += NodeButton_Click;
+            _soundPlayer.Stream = Resources.called;
+            _soundPlayer.Play();
+            //停止滚动
+            RollTimer.Stop();
+            StopButton.Text = "开始";
+        }
+
+        private void RollControl_Leave(object sender, EventArgs e)
+        {
+            _soundPlayer.Stop();
         }
     }
 }

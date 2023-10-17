@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>随机点名</AssemblyName>
+    <ApplicationIcon>Resources\Health.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

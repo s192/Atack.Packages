@@ -1,6 +1,7 @@
 using Atack.RollCaller.Controls;
 using Atack.RollCaller.Utils;
 using System.Text;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Atack.RollCaller
 {
@@ -28,7 +29,15 @@ namespace Atack.RollCaller
             SetPictureButton.BringToFront();
             CalledListButton.BringToFront();
 
-            ImportControl.GetInstance(this).Show();
+            ImportControl.GetInstance(this).Hide();
+            try
+            {
+                ImportControl.ImportChildren(RollConstant.Root, "00ÇøÓò.xlsx", true);
+            }
+            catch (Exception ex)
+            {
+                ImportControl.GetInstance(this).Show();
+            }
 
             ExitButton.BringToFront();
         }
