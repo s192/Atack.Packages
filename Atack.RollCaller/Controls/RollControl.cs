@@ -1,4 +1,5 @@
 ﻿using Atack.RollCaller.Model;
+using Atack.RollCaller.Utils;
 using System;
 using System.Reflection;
 
@@ -86,7 +87,10 @@ namespace Atack.RollCaller.Controls
 
                         _buttons[0].Text = rollNode.Text;
                         _buttons[0].Tag = rollNode;
-                    } while (rollNode.Text == "坊子");
+                    } while (rollNode.Text == "坊子" || RollConstant.CalledNodeList.Contains(rollNode));
+                    //已抽过的叶子节点不再抽
+                    if (rollNode.Nodes.Count == 0)
+                        RollConstant.CalledNodeList.Add(rollNode);
 
                     _buttons[0].Click += NodeButton_Click;
                     StopButton.Text = "开始";
