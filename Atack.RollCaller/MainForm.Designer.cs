@@ -102,7 +102,6 @@ namespace Atack.RollCaller
             Controls.Add(ImportButton);
             Controls.Add(ExitButton);
             Controls.Add(startControl1);
-            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(800, 450);
             Name = "MainForm";

@@ -61,7 +61,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(panel1);
-            DoubleBuffered = true;
             MinimumSize = new Size(800, 450);
             Name = "StartControl";
             Size = new Size(800, 450);
