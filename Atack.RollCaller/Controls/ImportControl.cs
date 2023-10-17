@@ -22,13 +22,13 @@ namespace Atack.RollCaller.Controls
             this.Hide();
         }
 
-        public static ImportControl GetInstance(Control control)
+        public static ImportControl GetInstance(Control? control = null)
         {
             if (_instance != null)
                 return _instance;
 
             _instance = new ImportControl();
-            control.Controls.Add(_instance);
+            control?.Controls.Add(_instance);
             _instance.Dock = DockStyle.Fill;
             _instance.BringToFront();
             return _instance;
@@ -150,7 +150,7 @@ namespace Atack.RollCaller.Controls
         {
             if (node.Level == 0)
             {
-                MessageBox.Show(this, "根节点不能删除", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.ShowError("根节点不能删除", this);
                 return;
             }
             node.Remove();

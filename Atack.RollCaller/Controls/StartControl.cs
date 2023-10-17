@@ -1,4 +1,5 @@
 ﻿using Atack.RollCaller.Model;
+using Atack.RollCaller.Utils;
 
 namespace Atack.RollCaller.Controls
 {
@@ -9,11 +10,16 @@ namespace Atack.RollCaller.Controls
             InitializeComponent();
         }
 
-        public RollNode RootNode { get; internal set; }
-
         private void StartButton_Click(object sender, EventArgs e)
         {
-            RollControl.Create(RootNode, panel1);
+            if (RollConstant.Root.Nodes.Count == 0)
+            {
+                MsgBox.ShowInformation("名单为空，请先导入！", this);
+                ImportControl.GetInstance().Show();
+                return;
+            }
+
+            RollControl.Create(RollConstant.Root, panel1);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Atack.RollCaller.Controls
                     }
                     if (isAllDone)
                     {
-                        MessageBox.Show(this, "本组已全部抽完！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MsgBox.ShowInformation("本组已全部抽完！", this);
                         return;
                     }
                     //开始滚动

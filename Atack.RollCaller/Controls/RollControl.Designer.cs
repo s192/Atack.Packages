@@ -50,13 +50,13 @@
             // 
             // NodeButton
             // 
-            NodeButton.Anchor = AnchorStyles.None;
+            NodeButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             NodeButton.FlatAppearance.BorderSize = 0;
             NodeButton.FlatStyle = FlatStyle.Flat;
             NodeButton.Font = new Font("楷体", 42F, FontStyle.Bold, GraphicsUnit.Point);
-            NodeButton.Location = new Point(25, 100);
+            NodeButton.Location = new Point(0, 100);
             NodeButton.Name = "NodeButton";
-            NodeButton.Size = new Size(750, 250);
+            NodeButton.Size = new Size(800, 250);
             NodeButton.TabIndex = 2;
             NodeButton.Text = "姓名";
             NodeButton.UseVisualStyleBackColor = true;

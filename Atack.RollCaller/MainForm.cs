@@ -9,8 +9,6 @@ namespace Atack.RollCaller
         public MainForm()
         {
             InitializeComponent();
-
-            startControl1.RootNode = RollConstant.Root;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
