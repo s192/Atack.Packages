@@ -84,7 +84,8 @@ namespace Atack.RollCaller.Controls
         {
             var selectedNode = RollNodesTreeView.SelectedNode as RollNode;
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel|*.xls;*.xlsx;";
             if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
 

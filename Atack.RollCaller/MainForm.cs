@@ -45,6 +45,7 @@ namespace Atack.RollCaller
         private void SetPictureButton_Click(object sender, EventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "ͼƬ|*.gif;*.jpg;*.jpeg;*.bmp;*.jfif;*.png;";
             if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
 
