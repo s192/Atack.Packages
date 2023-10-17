@@ -30,10 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            BactButton = new Button();
+            BackButton = new Button();
             RollNodesTreeView = new TreeView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             导入名单ToolStripMenuItem = new ToolStripMenuItem();
+            全部展开ToolStripMenuItem = new ToolStripMenuItem();
             移除ToolStripMenuItem = new ToolStripMenuItem();
             清空ToolStripMenuItem = new ToolStripMenuItem();
             详情ToolStripMenuItem = new ToolStripMenuItem();
@@ -43,7 +44,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(BactButton);
+            panel1.Controls.Add(BackButton);
             panel1.Controls.Add(RollNodesTreeView);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -51,19 +52,19 @@
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
             // 
-            // BactButton
+            // BackButton
             // 
-            BactButton.Anchor = AnchorStyles.Bottom;
-            BactButton.Font = new Font("Microsoft YaHei UI", 42F, FontStyle.Bold, GraphicsUnit.Point);
-            BactButton.ForeColor = SystemColors.ControlText;
-            BactButton.Location = new Point(260, 330);
-            BactButton.MinimumSize = new Size(280, 110);
-            BactButton.Name = "BactButton";
-            BactButton.Size = new Size(280, 110);
-            BactButton.TabIndex = 10;
-            BactButton.Text = "返回";
-            BactButton.UseVisualStyleBackColor = true;
-            BactButton.Click += BactButton_Click;
+            BackButton.Anchor = AnchorStyles.Bottom;
+            BackButton.Font = new Font("Microsoft YaHei UI", 42F, FontStyle.Bold, GraphicsUnit.Point);
+            BackButton.ForeColor = SystemColors.ControlText;
+            BackButton.Location = new Point(260, 330);
+            BackButton.MinimumSize = new Size(280, 110);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(280, 110);
+            BackButton.TabIndex = 0;
+            BackButton.Text = "返回";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
             // 
             // RollNodesTreeView
             // 
@@ -73,15 +74,17 @@
             RollNodesTreeView.Location = new Point(310, 36);
             RollNodesTreeView.Name = "RollNodesTreeView";
             RollNodesTreeView.Size = new Size(181, 288);
-            RollNodesTreeView.TabIndex = 9;
+            RollNodesTreeView.TabIndex = 1;
+            RollNodesTreeView.KeyDown += RollNodesTreeView_KeyDown;
+            RollNodesTreeView.MouseDoubleClick += RollNodesTreeView_MouseDoubleClick;
             RollNodesTreeView.MouseDown += RollNodesTreeView_MouseDown;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Font = new Font("Microsoft YaHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 导入名单ToolStripMenuItem, 移除ToolStripMenuItem, 清空ToolStripMenuItem, 详情ToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 导入名单ToolStripMenuItem, 全部展开ToolStripMenuItem, 移除ToolStripMenuItem, 清空ToolStripMenuItem, 详情ToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(185, 148);
+            contextMenuStrip1.Size = new Size(185, 184);
             // 
             // 导入名单ToolStripMenuItem
             // 
@@ -90,12 +93,19 @@
             导入名单ToolStripMenuItem.Text = "导入名单";
             导入名单ToolStripMenuItem.Click += Import_StripMenuItem_Click;
             // 
+            // 全部展开ToolStripMenuItem
+            // 
+            全部展开ToolStripMenuItem.Name = "全部展开ToolStripMenuItem";
+            全部展开ToolStripMenuItem.Size = new Size(184, 36);
+            全部展开ToolStripMenuItem.Text = "全部展开";
+            全部展开ToolStripMenuItem.Click += ExpandAll_StripMenuItem_Click;
+            // 
             // 移除ToolStripMenuItem
             // 
             移除ToolStripMenuItem.Name = "移除ToolStripMenuItem";
             移除ToolStripMenuItem.Size = new Size(184, 36);
             移除ToolStripMenuItem.Text = "移除";
-            移除ToolStripMenuItem.Click += Remove_ToolStripMenuItem_Click;
+            移除ToolStripMenuItem.Click += Remove_StripMenuItem_Click;
             // 
             // 清空ToolStripMenuItem
             // 
@@ -109,7 +119,7 @@
             详情ToolStripMenuItem.Name = "详情ToolStripMenuItem";
             详情ToolStripMenuItem.Size = new Size(184, 36);
             详情ToolStripMenuItem.Text = "详情";
-            详情ToolStripMenuItem.Click += More_ToolStripMenuItem_Click;
+            详情ToolStripMenuItem.Click += More_StripMenuItem_Click;
             // 
             // ImportControl
             // 
@@ -134,6 +144,7 @@
         private ToolStripMenuItem 清空ToolStripMenuItem;
         private ToolStripMenuItem 移除ToolStripMenuItem;
         private ToolStripMenuItem 详情ToolStripMenuItem;
-        private Button BactButton;
+        private Button BackButton;
+        private ToolStripMenuItem 全部展开ToolStripMenuItem;
     }
 }

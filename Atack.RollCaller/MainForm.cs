@@ -1,5 +1,6 @@
 using Atack.RollCaller.Controls;
 using Atack.RollCaller.Utils;
+using System.Text;
 
 namespace Atack.RollCaller
 {
@@ -27,6 +28,7 @@ namespace Atack.RollCaller
             startControl1.BringToFront();
             ImportButton.BringToFront();
             SetPictureButton.BringToFront();
+            CalledListButton.BringToFront();
 
             ImportControl.GetInstance(this).Show();
 
@@ -42,6 +44,25 @@ namespace Atack.RollCaller
             var filePath = openFileDialog.FileName;
             this.BackgroundImage = Image.FromFile(filePath);//…Ë÷√±≥æ∞ÕºŒ™formBackImg.png
             this.BackgroundImageLayout = ImageLayout.Stretch;//…Ë÷√±≥æ∞Õº◊‘  ”¶
+        }
+
+        private void CalledListButton_Click(object sender, EventArgs e)
+        {
+            string msg;
+            if (RollConstant.CalledNodeList.Count == 0)
+            {
+                msg = "ªπŒ¥≥È«©£°";
+            }
+            else
+            {
+                var stringBuilder = new StringBuilder();
+                foreach (var node in RollConstant.CalledNodeList)
+                {
+                    stringBuilder.AppendLine(node.Text);
+                }
+                msg = stringBuilder.ToString();
+            }
+            MessageBox.Show(this, msg, "“—≥È«©√˚µ•", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #region ∑¿÷π…¡À∏

@@ -17,7 +17,7 @@ namespace Atack.RollCaller.Controls
             RollNodesTreeView.Nodes.Add(RollConstant.Root);
         }
 
-        private void BactButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
@@ -36,15 +36,46 @@ namespace Atack.RollCaller.Controls
 
         private void RollNodesTreeView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Right)//判断你点的是不是右键           
+            if (e.Button != MouseButtons.Right)
                 return;
 
-            Point ClickPoint = new Point(e.X, e.Y);
-            TreeNode CurrentNode = RollNodesTreeView.GetNodeAt(ClickPoint);
-            if (CurrentNode == null)//判断你点的是不是一个节点               
+            //选中右键点击的节点
+            var point = new Point(e.X, e.Y);
+            var node = RollNodesTreeView.GetNodeAt(point);
+            if (node == null)
+            {
+                清空ToolStripMenuItem.Visible = false;
+                移除ToolStripMenuItem.Visible = false;
+                详情ToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                清空ToolStripMenuItem.Visible = true;
+                移除ToolStripMenuItem.Visible = true;
+                详情ToolStripMenuItem.Visible = true;
+                RollNodesTreeView.SelectedNode = node;
+            }
+        }
+
+        private void RollNodesTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
                 return;
 
-            RollNodesTreeView.SelectedNode = CurrentNode;//选中这个节点
+            var node = RollNodesTreeView.SelectedNode as RollNode;
+            if (node == null)
+                return;
+
+            if (node.Nodes.Count != 0)
+                return;
+
+            node.ShowTag(this);
+        }
+
+        private void RollNodesTreeView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                RemoveNode(RollNodesTreeView.SelectedNode);
         }
 
         #region 右键菜单点击事件
@@ -92,24 +123,37 @@ namespace Atack.RollCaller.Controls
             }
         }
 
-        private void Remove_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Remove_StripMenuItem_Click(object sender, EventArgs e)
         {
-            var selectedNode = RollNodesTreeView.SelectedNode as RollNode;
-            selectedNode.Remove();
+            RemoveNode(RollNodesTreeView.SelectedNode);
         }
 
         private void Clear_StripMenuItem_Click(object sender, EventArgs e)
         {
-            var selectedNode = RollNodesTreeView.SelectedNode as RollNode;
-            selectedNode.Nodes.Clear();
+            RollNodesTreeView.SelectedNode.Nodes.Clear();
         }
 
-        private void More_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void More_StripMenuItem_Click(object sender, EventArgs e)
         {
             var selectedNode = (RollNode)RollNodesTreeView.SelectedNode;
             selectedNode.ShowTag(this);
         }
 
+        private void ExpandAll_StripMenuItem_Click(object sender, EventArgs e)
+        {
+            RollNodesTreeView.SelectedNode.ExpandAll();
+        }
+
         #endregion
+
+        private void RemoveNode(TreeNode node)
+        {
+            if (node.Level == 0)
+            {
+                MessageBox.Show(this, "根节点不能删除", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            node.Remove();
+        }
     }
 }

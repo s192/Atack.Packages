@@ -50,7 +50,7 @@
             StartButton.MinimumSize = new Size(280, 110);
             StartButton.Name = "StartButton";
             StartButton.Size = new Size(280, 110);
-            StartButton.TabIndex = 4;
+            StartButton.TabIndex = 0;
             StartButton.Text = "开始";
             StartButton.UseVisualStyleBackColor = true;
             StartButton.Click += StartButton_Click;

@@ -34,6 +34,7 @@ namespace Atack.RollCaller
             startControl1 = new StartControl();
             ImportButton = new Button();
             SetPictureButton = new Button();
+            CalledListButton = new Button();
             SuspendLayout();
             // 
             // ExitButton
@@ -46,7 +47,7 @@ namespace Atack.RollCaller
             ExitButton.MinimumSize = new Size(60, 60);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(60, 60);
-            ExitButton.TabIndex = 0;
+            ExitButton.TabIndex = 4;
             ExitButton.Text = "X";
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
@@ -59,7 +60,7 @@ namespace Atack.RollCaller
             startControl1.MinimumSize = new Size(800, 450);
             startControl1.Name = "startControl1";
             startControl1.Size = new Size(800, 450);
-            startControl1.TabIndex = 1;
+            startControl1.TabIndex = 0;
             // 
             // ImportButton
             // 
@@ -91,6 +92,21 @@ namespace Atack.RollCaller
             SetPictureButton.UseVisualStyleBackColor = true;
             SetPictureButton.Click += SetPictureButton_Click;
             // 
+            // CalledListButton
+            // 
+            CalledListButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CalledListButton.Font = new Font("Microsoft YaHei UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            CalledListButton.ForeColor = SystemColors.ControlText;
+            CalledListButton.Location = new Point(471, 12);
+            CalledListButton.MaximumSize = new Size(60, 60);
+            CalledListButton.MinimumSize = new Size(60, 60);
+            CalledListButton.Name = "CalledListButton";
+            CalledListButton.Size = new Size(60, 60);
+            CalledListButton.TabIndex = 1;
+            CalledListButton.Text = "已";
+            CalledListButton.UseVisualStyleBackColor = true;
+            CalledListButton.Click += CalledListButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -98,6 +114,7 @@ namespace Atack.RollCaller
             BackgroundImage = Properties.Resources.R_C;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(CalledListButton);
             Controls.Add(SetPictureButton);
             Controls.Add(ImportButton);
             Controls.Add(ExitButton);
@@ -118,5 +135,6 @@ namespace Atack.RollCaller
         private StartControl startControl1;
         private Button ImportButton;
         private Button SetPictureButton;
+        private Button CalledListButton;
     }
 }
