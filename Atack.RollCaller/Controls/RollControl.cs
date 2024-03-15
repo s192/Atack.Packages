@@ -61,7 +61,6 @@ namespace Atack.RollCaller.Controls
                     break;
                 case "停止":
                     StopRolling();
-#warning 排除坊子的逻辑，共享时须删除
                     RollNode rollNode;
                     do
                     {
@@ -71,7 +70,7 @@ namespace Atack.RollCaller.Controls
 
                         NodeButton.Text = rollNode.Text;
                         NodeButton.Tag = rollNode;
-                    } while (rollNode.Text == "坊子" || RollConstant.CalledNodeList.Contains(rollNode));
+                    } while (RollConstant.CalledNodeList.Contains(rollNode));
                     //已抽过的叶子节点不再抽
                     if (rollNode.Nodes.Count == 0)
                         RollConstant.CalledNodeList.Add(rollNode);
