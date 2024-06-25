@@ -7,6 +7,9 @@
     {
         public int Id { get; set; }
 
+        /// <summary>
+        /// 姓名
+        /// </summary>
         public string Name { get; set; }
 
         /// <summary>

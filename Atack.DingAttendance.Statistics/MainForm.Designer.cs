@@ -55,15 +55,15 @@
             DataDataGridView.Size = new Size(595, 342);
             DataDataGridView.TabIndex = 1;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(619, 434);
             Controls.Add(DataDataGridView);
             Controls.Add(OpenExcelFileButton);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "MainForm";
+            Text = "考勤汇总";
             ((System.ComponentModel.ISupportInitialize)DataDataGridView).EndInit();
             ResumeLayout(false);
         }
