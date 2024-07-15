@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atack.ExcelSearcher", "Atac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atack.RollCaller", "Atack.RollCaller\Atack.RollCaller.csproj", "{E74469AF-C7C7-4975-B358-2F372D6847AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atack.DingAttendance.Statistics", "Atack.DingAttendance.Statistics\Atack.DingAttendance.Statistics.csproj", "{64B8FA0F-8D4B-40A6-BCE5-A1288E68A93A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atack.DingAttendance.Statistics", "Atack.DingAttendance.Statistics\Atack.DingAttendance.Statistics.csproj", "{64B8FA0F-8D4B-40A6-BCE5-A1288E68A93A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStack.FolderCleaner", "AStack.FolderCleaner\AStack.FolderCleaner.csproj", "{4249E262-C60D-40DC-8949-E96B76D5B21E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{64B8FA0F-8D4B-40A6-BCE5-A1288E68A93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B8FA0F-8D4B-40A6-BCE5-A1288E68A93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B8FA0F-8D4B-40A6-BCE5-A1288E68A93A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4249E262-C60D-40DC-8949-E96B76D5B21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4249E262-C60D-40DC-8949-E96B76D5B21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4249E262-C60D-40DC-8949-E96B76D5B21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4249E262-C60D-40DC-8949-E96B76D5B21E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
